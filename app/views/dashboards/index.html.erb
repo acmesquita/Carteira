@@ -1,7 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice" class="flash_sucess"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<%end%>
 
 <h6>DASHBOARDS</h6>
-
+<% if @bancos.empty? %>
+  <h5>Não há bancos cadastrados, clique em + no canto direito para iniciar. <h5>
+<% end %>
 <div class="row">
 <% @bancos.each do |banco| %>
     <div class="col s12 m4">

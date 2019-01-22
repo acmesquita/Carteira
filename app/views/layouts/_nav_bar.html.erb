@@ -2,19 +2,18 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">Carteira</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if current_user %>
         <li><%= link_to 'Bancos', bancos_path %></li>
-        <li>Olá, Usuário</li>
+        <li>Olá, <%= current_user.email %></li>
         <li>
             <a  class='dropdown-trigger' href="#" data-target='dropdown1'><i class="material-icons">arrow_drop_down</i></a>
             <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li class="divider" tabindex="-1"></li>
-                <li><a href="#!">three</a></li>
-                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+              <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
             </ul>
         </li>
+        <%else%>
+          <li><%= render "devise/shared/links" %></li>
+        <%end%>
       </ul>
     </div>
   </nav>

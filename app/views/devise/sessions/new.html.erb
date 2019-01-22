@@ -1,0 +1,24 @@
+<h6>ENTRAR</h6>
+
+<div class="row">
+  <div class="col m3"></div>
+  <div class="card col m6" style="padding: 20px;">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Entrar", class:"btn" %>
+    </div>
+  <% end %>
+  </div>
+  <div class="col m3"></div>
+</div>
+

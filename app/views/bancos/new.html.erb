@@ -1,5 +1,7 @@
-<h1>New Banco</h1>
+<%= link_to bancos_path do %>
+    <i class="material-icons">arrow_back</i> VOLTAR
+<%end%>
+<h6>NOVO BANCO</h6>
 
 <%= render 'form', banco: @banco %>
 
-<%= link_to 'Back', bancos_path %>

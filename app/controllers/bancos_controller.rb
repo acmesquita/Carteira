@@ -4,7 +4,7 @@ class BancosController < ApplicationController
   # GET /bancos
   # GET /bancos.json
   def index
-    @bancos = Banco.all
+    @bancos = current_user.bancos
   end
 
   # GET /bancos/1
@@ -25,6 +25,7 @@ class BancosController < ApplicationController
   # POST /bancos.json
   def create
     @banco = Banco.new(banco_params)
+    @banco.user = current_user
 
     respond_to do |format|
       if @banco.save
