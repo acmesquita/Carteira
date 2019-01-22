@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @saldo.data %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @saldo.valor %>
+</p>
+
+<p>
+  <strong>Banco:</strong>
+  <%= @saldo.banco %>
+</p>
+
+<%= link_to 'Edit', edit_saldo_path(@saldo) %> |
+<%= link_to 'Back', saldos_path %>

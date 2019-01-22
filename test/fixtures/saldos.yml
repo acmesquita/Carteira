@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2019-01-22
+  valor: 1.5
+  banco: one
+
+two:
+  data: 2019-01-22
+  valor: 1.5
+  banco: two
