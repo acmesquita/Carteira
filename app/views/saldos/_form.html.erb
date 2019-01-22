@@ -1,8 +1,7 @@
 <%= form_with(model: saldo, local: true) do |form| %>
   <% if saldo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(saldo.errors.count, "error") %> prohibited this saldo from being saved:</h2>
-
+      <h4><%= pluralize(saldo.errors.count, "error") %> prohibited this saldo from being saved:</h4>
       <ul>
       <% saldo.errors.full_messages.each do |message| %>
         <li><%= message %></li>

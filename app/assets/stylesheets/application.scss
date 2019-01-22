@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+ 
+ @import "materialize";
+ @import "material_icons";
+
+ .nav-wrapper{
+    padding-right: 10px;
+    padding-left: 10px;
+ }
+
+ body{
+   background-color: #dddddd
+ }
+
+ h6{
+    color: #777777
+ }
+ .card{
+   background-color: #ffffff !important;
+   border-radius: 3px;
+   padding: 30px;
+   padding-top: 20px;
+   margin-top: 10px;
+   width: 100%
+ }
