@@ -1,6 +1,8 @@
-<h1>Editing Banco</h1>
+<h6>ALTERAR BANCO</h6>
 
 <%= render 'form', banco: @banco %>
 
-<%= link_to 'Show', @banco %> |
-<%= link_to 'Back', bancos_path %>
+<div class="float-right">
+    <%= link_to 'Detalhes', @banco, class:"btn blue darken-4" %>
+    <%= link_to 'Outros bancos', bancos_path, class:"btn" %>
+</div>

@@ -15,6 +15,8 @@ class SaldosController < ApplicationController
   # GET /saldos/new
   def new
     @saldo = Saldo.new
+    @saldo.banco = Banco.find(params[:format]) rescue nil
+    @saldo.data = Date.today
   end
 
   # GET /saldos/1/edit
@@ -28,7 +30,7 @@ class SaldosController < ApplicationController
 
     respond_to do |format|
       if @saldo.save
-        format.html { redirect_to @saldo, notice: 'Saldo was successfully created.' }
+        format.html { redirect_to @saldo.banco, notice: 'Saldo was successfully created.' }
         format.json { render :show, status: :created, location: @saldo }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class SaldosController < ApplicationController
   def update
     respond_to do |format|
       if @saldo.update(saldo_params)
-        format.html { redirect_to @saldo, notice: 'Saldo was successfully updated.' }
+        format.html { redirect_to @saldo.banco, notice: 'Saldo was successfully updated.' }
         format.json { render :show, status: :ok, location: @saldo }
       else
         format.html { render :edit }

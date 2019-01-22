@@ -8,13 +8,14 @@
       <div class="card">
         <div class="card-image">
           <%= image_tag 'grafico1.png' %>
-          <%= link_to new_banco_saldo_path(banco.id), class:"btn-floating halfway-fab waves-effect waves-light red" do %>
+          <%= link_to new_saldo_path(banco), class:"btn-floating halfway-fab waves-effect waves-light red" do %>
             <i class="material-icons">add</i>
           <% end %>
         </div>
         <div class="card-content">
           <span class="card-title"><%= link_to banco.nome, banco_path(banco.id) %></span>
-          <p>Saldo Atual: R$ 100.000,00</p>
+          <small><%= banco.tipo %></small>
+          <p>Saldo Atual: <%=number_to_currency( valor_total(banco)) %> </p>
         </div>
       </div>
     </div>

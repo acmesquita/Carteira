@@ -1,29 +1,39 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice" class="flash_sucess"><%= notice %></p>
+<%end%>
+<h6>BANCOS</h6>
 
-<h1>Bancos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Tipo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bancos.each do |banco| %>
+<div class="card">
+  <table>
+    <thead>
       <tr>
-        <td><%= banco.nome %></td>
-        <td><%= banco.tipo %></td>
-        <td><%= link_to 'Show', banco %></td>
-        <td><%= link_to 'Edit', edit_banco_path(banco) %></td>
-        <td><%= link_to 'Destroy', banco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @bancos.each do |banco| %>
+        <tr>
+          <td><%= link_to banco.nome.upcase, banco %></td>
+          <td><%= banco.tipo %></td>
+          <td><%= link_to edit_banco_path(banco) do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          <%= link_to  banco, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="material-icons">delete</i>
+          <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Banco', new_banco_path %>
+<div class="fixed-action-btn">
+  <%= link_to  new_banco_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
+      

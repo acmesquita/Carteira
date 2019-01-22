@@ -1,14 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice" class="flash_sucess"><%= notice %></p>
+<%end%>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @banco.nome %>
-</p>
+<div class="row">
+  <h6>
+    <%= @banco.nome.upcase %> 
+    <div class="float-right">
+      <%= link_to edit_banco_path(@banco) do%> 
+        <i class="material-icons">edit</i>
+      <%end%>
+    </div>
+  </h6>
+  <small><%= @banco.tipo %></small>
+</div>
+<div class="card">
+</div>
+<br/>
+<%= link_to 'Outros Bancos', bancos_path, class:"btn" %>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @banco.tipo %>
-</p>
-
-<%= link_to 'Edit', edit_banco_path(@banco) %> |
-<%= link_to 'Back', bancos_path %>
+<div class="fixed-action-btn">
+  <%= link_to  new_saldo_path(@banco), class:"btn-floating btn-large waves-effect waves-light red" do%>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

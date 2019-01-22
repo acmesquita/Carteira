@@ -1,7 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Saldos</h1>
-
+<% if notice %>
+  <p id="notice" class="flash_sucess"><%= notice %></p>
+<%end%>
+<h6>SALDOS</h6>
+<div class="card">
 <table>
   <thead>
     <tr>
@@ -17,15 +18,23 @@
       <tr>
         <td><%= saldo.data %></td>
         <td><%= saldo.valor %></td>
-        <td><%= saldo.banco %></td>
-        <td><%= link_to 'Show', saldo %></td>
-        <td><%= link_to 'Edit', edit_saldo_path(saldo) %></td>
-        <td><%= link_to 'Destroy', saldo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= saldo.banco.nome %></td>
+        <td>
+          <%= link_to edit_saldo_path(saldo) do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          <%= link_to  saldo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="material-icons">delete</i>
+          <%end%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
-
-<%= link_to 'New Saldo', new_saldo_path %>
+<div class="fixed-action-btn">
+  <%= link_to  new_saldo_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>

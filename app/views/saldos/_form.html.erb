@@ -1,31 +1,34 @@
-<%= form_with(model: saldo, local: true) do |form| %>
-  <% if saldo.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(saldo.errors.count, "error") %> prohibited this saldo from being saved:</h4>
-      <ul>
-      <% saldo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="card">
+  <%= form_with(model: saldo, local: true) do |form| %>
+    <% if saldo.errors.any? %>
+      <div id="error_explanation">
+        <h4><%= pluralize(saldo.errors.count, "error") %> prohibited this saldo from being saved:</h4>
+        <ul>
+        <% saldo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col s12 m4">
+        <%= form.label :data %>
+        <%= form.date_field :data%>
+      </div>
+
+      <div class="col s12 m4">
+        <%= form.label :valor %>
+        <%= form.number_field :valor, {:step => 0.01, :min => 0} %>
+      </div>
+
+      <div class="col s12 m4">
+        <%= form.label :banco_id %>
+        <%= form.select :banco_id, Banco.all.map{|b| [b.nome, b.id]}, {},class:"browser-default" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= form.submit 'SALVAR', class:"btn blue darken-4" %>
+      <%= link_to 'Voltar', root_path, class:"btn btn-default" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :data %>
-    <%= form.date_select :data %>
-  </div>
-
-  <div class="field">
-    <%= form.label :valor %>
-    <%= form.text_field :valor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :banco_id %>
-    <%= form.text_field :banco_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

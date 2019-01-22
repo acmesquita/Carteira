@@ -1,3 +1,4 @@
+<div class="card">
 <%= form_with(model: banco, local: true) do |form| %>
   <% if banco.errors.any? %>
     <div id="error_explanation">
@@ -10,18 +11,19 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="col s12 m4">
+      <%= form.label :nome %>
+      <%= form.text_field :nome %>
+    </div>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <div class="col s12 m4">
+      <%= form.label :tipo %>
+      <%= form.text_field :tipo %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Salvar', class:"btn blue darken-4"%>
   </div>
 <% end %>
+</div>
