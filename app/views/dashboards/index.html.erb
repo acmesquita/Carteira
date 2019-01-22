@@ -7,7 +7,7 @@
     <div class="col s12 m4">
       <div class="card">
         <div class="card-image">
-          <%= image_tag 'grafico1.png' %>
+          <div class="grafic chart-panel" style="width: 236.22px;height:200px;" onclick="chart(this, 'Saldos',<%=  get_data_labels(banco) %>, <%= get_data_values(banco)%>, 'line');"></div>
           <%= link_to new_saldo_path(banco), class:"btn-floating halfway-fab waves-effect waves-light red" do %>
             <i class="material-icons">add</i>
           <% end %>
@@ -15,9 +15,21 @@
         <div class="card-content">
           <span class="card-title"><%= link_to banco.nome, banco_path(banco.id) %></span>
           <small><%= banco.tipo %></small>
-          <p>Saldo Atual: <%=number_to_currency( valor_total(banco)) %> </p>
+          <p>Saldo Atual: <%=number_to_currency( ultimo_valor(banco)) %> </p>
         </div>
       </div>
     </div>
 <% end %>
 </div>
+
+<div class="fixed-action-btn">
+  <%= link_to  new_banco_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
+
+<script>
+  document.querySelectorAll(".grafic").forEach(grafic => {
+    grafic.click();
+  });
+</script>

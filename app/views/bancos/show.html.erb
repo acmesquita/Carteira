@@ -3,23 +3,57 @@
 <%end%>
 
 <div class="row">
+  <%= link_to bancos_path, class:"" do %>
+    <i class="material-icons">arrow_back</i> VOLTAR
+  <% end %>
+  <div class="float-right">
+    <%= link_to edit_banco_path(@banco) do%> 
+      <i class="material-icons">edit</i> EDITAR
+    <%end%>
+  </div>
   <h6>
     <%= @banco.nome.upcase %> 
-    <div class="float-right">
-      <%= link_to edit_banco_path(@banco) do%> 
-        <i class="material-icons">edit</i>
-      <%end%>
-    </div>
   </h6>
   <small><%= @banco.tipo %></small>
 </div>
 <div class="card">
+  <div class="grafic chart-panel" style="width: 100%;height:400px;" onclick="chart(this, 'Saldos',<%=  get_data_labels(@banco) %>, <%= get_data_values(@banco)%>, 'line');"></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Valor</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @banco.saldos.sort_by{|s|s.data}.each do |saldo| %>
+        <tr>
+          <td><%= saldo.data.strftime("%d/%m/%Y") %></td>
+          <td><%= number_to_currency(saldo.valor) %></td>
+          <td>
+            <%= link_to edit_saldo_path(saldo) do %>
+              <i class="material-icons">edit</i>
+            <% end %>
+            <%= link_to  saldo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="material-icons">delete</i>
+            <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 <br/>
-<%= link_to 'Outros Bancos', bancos_path, class:"btn" %>
 
 <div class="fixed-action-btn">
   <%= link_to  new_saldo_path(@banco), class:"btn-floating btn-large waves-effect waves-light red" do%>
     <i class="material-icons">add</i>
   <% end %>
 </div>
+<script>
+  document.querySelectorAll(".grafic").forEach(grafic => {
+    grafic.click();
+  });
+</script>
