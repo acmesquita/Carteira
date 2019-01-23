@@ -51,6 +51,15 @@
   color: green;
  }
 
+ .flash_fail{
+  border-color: red;
+  margin-top: 20px;
+  background-color: #dd515147;
+  padding: 15px;
+  border-radius: 5px;
+  color: red;
+ }
+
 .scroll{
   overflow: auto;
   height: 400px;

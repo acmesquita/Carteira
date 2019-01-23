@@ -24,14 +24,20 @@ chart = (element, label, data_label, data_values, type) => {
     console.log(data_values)
    // specify chart configuration item and data
    var option = {
-       tooltip: {},
+       tooltip: {
+       },
        legend: {
            data:[label]
        },
        xAxis: {
            data: data_label
        },
-       yAxis: {},
+       yAxis: {
+            axisLabel:{rotate: 0, fontSize: 12 }
+        },
+        grid:{
+            left: 50
+        },
        series: [{
            name: label,
            type: type,

@@ -9,11 +9,11 @@ module DashboardsHelper
     end
 
     def get_data_labels_user(user)
-        Saldo.all.group_by{|s|s.data}.map{|d| d[0].strftime("%d/%m/%y")}
+        user.bancos.map{|b| b.saldos.group_by{|s|s.data}.keys}.flatten.to_set.sort.map{|d| d.strftime("%d/%m/%y")}
     end
 
     def get_data_values_user(user)
-        Saldo.all.group_by{|s|s.data}.map{|d| d[1].map{|a|a.valor}.sum}
+        Saldo.where(:banco=>user.bancos.map{|b|b.id}).sort_by{|s|s.data}.group_by{|s| s.data}.map{|a| a[1].map{|s|s.valor}.sum}
     end
 
     def data_saldo_atual
@@ -29,6 +29,9 @@ module DashboardsHelper
                 s.data,
                 sum(s.valor) as total
                from saldos s
+                    inner join bancos b on s.banco_id = b.id
+                    inner join users u on b.user_id = u.id
+               where u.id = #{current_user.id}
                group by s.data
                order by s.data desc
                limit 1 

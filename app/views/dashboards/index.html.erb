@@ -1,7 +1,10 @@
 <% if notice %>
   <p id="notice" class="flash_sucess"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<%end %>
+<% if alert %>
+  <p class="flash_fail"><%= alert %></p>
 <%end%>
+
 
 <h6>DASHBOARDS</h6>
 <% if @bancos.empty? %>
