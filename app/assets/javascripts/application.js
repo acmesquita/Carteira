@@ -17,7 +17,7 @@
 //= require echarts.min
 //= require_tree .
 
-chart = (element, label, data_label, data_values, type) => {
+chart = function(element, label, data_label, data_values, type){
    // based on prepared DOM, initialize echarts instance
    var myChart = echarts.init(element);
     console.log(data_label)
