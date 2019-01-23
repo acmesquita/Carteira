@@ -17,7 +17,7 @@ module DashboardsHelper
     end
 
     def data_saldo_atual
-        ultimo_dia_saldo.keys.first rescue Date.today
+        ultimo_dia_saldo.keys.first rescue ""
     end
 
     def saldo_atual
@@ -41,6 +41,6 @@ module DashboardsHelper
     end
 
     def format_data(string)
-        Date.parse(string).strftime('%d/%m/%Y')
+        Date.parse(string).strftime('%d/%m/%Y') rescue ""
     end
 end
