@@ -17,11 +17,11 @@ module DashboardsHelper
     end
 
     def data_saldo_atual
-        ultimo_dia_saldo.keys.first
+        ultimo_dia_saldo.keys.first rescue nil
     end
 
     def saldo_atual
-        ultimo_dia_saldo.values.first
+        ultimo_dia_saldo.values.first rescue 0
     end
 
     def ultimo_dia_saldo
