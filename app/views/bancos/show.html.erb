@@ -18,7 +18,7 @@
   <small><%= @banco.tipo %></small>
 </div>
 <div class="card">
-  <div class="grafic chart-panel" style="width: 100%;height:400px;" onclick="chart(this, 'Saldos',<%=  get_data_labels(@banco) %>, <%= get_data_values(@banco)%>, 'line');"></div>
+  <div class="grafic chart-panel" style="width: 100%;height:400px;" onclick="chart(this, 'Saldos',<%=  get_data_labels_banco(@banco) %>, <%= get_data_values_banco(@banco)%>, 'line');"></div>
   <table>
     <thead>
       <tr>
