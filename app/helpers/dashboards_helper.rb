@@ -17,7 +17,7 @@ module DashboardsHelper
     end
 
     def data_saldo_atual
-        ultimo_dia_saldo.keys.first rescue nil
+        ultimo_dia_saldo.keys.first rescue Date.today
     end
 
     def saldo_atual
