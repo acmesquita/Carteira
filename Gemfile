@@ -35,12 +35,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Inclua nas versões quando rails >= 5.1 
 gem 'jquery-rails'
- 
+
 # Sempre inclua
 gem 'materialize-sass'
 gem 'material_icons'
 
 gem 'devise'
+gem 'pg'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -66,6 +67,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
