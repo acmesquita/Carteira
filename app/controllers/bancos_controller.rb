@@ -1,4 +1,5 @@
 class BancosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_banco, only: [:show, :edit, :update, :destroy]
 
   # GET /bancos
