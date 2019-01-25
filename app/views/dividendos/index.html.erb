@@ -1,0 +1,93 @@
+<% if notice %>
+  <p id="notice" class="flash_sucess"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<%end%>
+<h6>DIVIDENDOS
+  <div class="float-right btn-pesquisar">
+    <i class="material-icons">search</i>
+  </div>
+</h6>
+
+<div id="card-search" class="row card hide">
+  <div class="col m3">
+    <%= form_tag("/dividendos", method: "get") do %>
+      <%= label_tag(:q, "Competência:") %>
+      <%= month_field(:dividendo, :competencia) %>
+  </div>  
+  <div class="col m3"></div>
+  <div class="col m3"></div>
+  <div class="col m3 pesquisar">
+    <%= submit_tag 'Pesquisar', class:"btn btn-primary" %>
+  </div>
+    <% end %>  
+</div>
+
+
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Competência</th>
+      <th>Descricao</th>
+      <th>Valor</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dividendos.each do |dividendo| %>
+      <tr>
+        <td>
+          <%if(dividendo.pago) %>
+            <i class="material-icons">check_box</i>
+          <% else %>
+            <%= link_to pagar_path(dividendo) do %>
+              <i class="material-icons">check_box_outline_blank</i>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%= dividendo.competencia.strftime("%m/%Y") rescue nil %></td>
+        <td><%= dividendo.descricao %></td>
+        <td><%= number_to_currency dividendo.valor %></td>
+        <td><%= link_to edit_dividendo_path(dividendo) do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          <%= link_to  dividendo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="material-icons">delete</i>
+          <%end%>
+        </td>
+      </tr>
+    <% end %>
+    <tr class="total">
+      <td><b>Total</b></td>
+      <td class="color-red"><b><%= number_to_currency valor_total_pago(@dividendos) - valor_total(@dividendos)%></b></td>      
+      <td class="color-green"><b><%= number_to_currency valor_total_pago(@dividendos)%></b></td>
+      <td class="color-blue"><b><%= number_to_currency valor_total(@dividendos)%></b></td>
+      <td></td>
+    <tr>
+  </tbody>
+</table>
+<div class="page-description">
+    <%= page_entries_info @dividendos rescue nil %>
+  </div>
+  <%= paginate @dividendos rescue nil %>
+</div>
+
+<div class="fixed-action-btn">
+  <%= link_to  new_dividendo_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
+
+<script>
+
+$(".btn-pesquisar").click(function(e){
+  if ($("#card-search").hasClass("hide")){
+    $("#card-search").removeClass("hide")
+  }else{
+    $("#card-search").addClass("hide")
+  }
+})
+
+</script>

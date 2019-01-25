@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @dividendo.descricao %>
+</p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @dividendo.pago %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @dividendo.valor %>
+</p>
+
+<%= link_to 'Edit', edit_dividendo_path(@dividendo) %> |
+<%= link_to 'Back', dividendos_path %>

@@ -24,8 +24,7 @@ chart = function(element, label, data_label, data_values, type){
     console.log(data_values)
    // specify chart configuration item and data
    var option = {
-       tooltip: {
-       },
+       tooltip: {},
        legend: {
            data:[label]
        },

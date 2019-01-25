@@ -12,12 +12,22 @@
 <% end %>
 
 <div class="row">
-  <div class="card">
-    <span class="card-title">Total</span>
+  <div class="col m1"></div>
+  <div class="card col m5">
+    <span class="card-title">Saldo Bancário</span>
     <div class="grafic chart-panel" style="width: 100%;height:200px;" onclick="chart(this, 'Saldos',<%=  get_data_labels_user(current_user) %>, <%= get_data_values_user(current_user)%>, 'bar');"></div>
     <div class="card-content">
       <p>Data Atual: <%= format_data(data_saldo_atual()) %> </p>
       <p>Saldo Atual: <%=number_to_currency( saldo_atual()) %> </p>
+    </div>
+  </div>
+  <div class="col m1"></div>
+  <div class="card col m5">
+    <span class="card-title">Dividendos</span>
+    <div class="grafic chart-panel" style="width: 100%;height:200px;" onclick="chart(this, 'Dividendos',<%=  get_data_labels_dividendos(current_user) %>, <%= get_data_values_dividendos(current_user)%>, 'bar');"></div>
+    <div class="card-content">
+      <p>Mês atual: <%= Date.today.strftime("%m/%Y") %> </p>
+      <p>Gasto do mês atual: <%=number_to_currency( gasto_atual()) %> </p>
     </div>
   </div>
 </div>

@@ -1,0 +1,47 @@
+<div class="card">
+<%= form_with(model: dividendo, local: true) do |form| %>
+  <% if dividendo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dividendo.errors.count, "error") %> prohibited this dividendo from being saved:</h2>
+
+      <ul>
+      <% dividendo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+      <div class="col s12 m4">
+        <%= form.label :competencia %>
+        <%= form.text_field :competencia, class:"datepicker" %>
+      </div>
+
+      <div class="col s12 m4">
+        <%= form.label :descricao %>
+        <%= form.text_field :descricao %>
+      </div>
+
+      <div class="col s12 m4">
+        <%= form.label :valor %>
+        <%= form.number_field :valor, step: '0.01' %>
+      </div>
+  </div>
+ <div class="actions">
+      <%= form.submit 'SALVAR', class:"btn blue darken-4" %>
+    </div>
+<% end %>
+</div>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var do_controller = '<%= @dividendo.competencia.strftime("%m-01-%Y") %>';
+    var competencia_atual = new Date(do_controller);
+    competencia_atual.setDate = 1;
+    var options =  {format: 'mm/yyyy', disableWeekends: true, setDefaultDate: true, defaultDate: competencia_atual, autoClose: true, selectMonths: true}
+    var instances = M.Datepicker.init(elems, options);
+  });
+
+</script>
+      

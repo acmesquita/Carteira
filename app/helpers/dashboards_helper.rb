@@ -43,4 +43,18 @@ module DashboardsHelper
     def format_data(string)
         Date.parse(string).strftime('%d/%m/%Y') rescue ""
     end
+
+    def get_data_labels_dividendos(user)
+        user.dividendos.sort_by{|d|d.competencia}.group_by{|d|d.competencia}.keys.to_set.map{|k| k.strftime("%m/%Y")}
+    end
+
+    def get_data_values_dividendos(user)
+        user.dividendos.sort_by{|d|d.competencia}.group_by{|d|d.competencia}.values.map{|d|d.map{|s| s.valor}.sum}
+    end
+
+    def gasto_atual()
+        competencia_atual = Date.today.strftime("%Y-%m")
+        current_user.dividendos.select{|d| d.competencia.strftime("%Y-%m") == competencia_atual}.map{|d| d.valor}.sum
+    end
+
 end

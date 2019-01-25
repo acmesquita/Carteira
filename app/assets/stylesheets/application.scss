@@ -34,7 +34,7 @@
    border-radius: 3px;
    padding: 30px;
    padding-top: 20px;
-   margin-top: 10px;
+   margin-top: 20px;
    width: 100%
  }
 
@@ -95,4 +95,27 @@
 .page-description{
   padding: 20px;
   float: right;
+}
+
+.total{
+  border-top: 2px solid rgba(0, 0, 0, 0.52);
+  border-bottom: transparent;
+}
+
+.pesquisar{
+  padding: 32px !important;
+  padding-bottom: 0px !important;
+  padding-right: 5px !important;
+}
+
+.color-red{
+  color: red;
+}
+
+.color-green{
+  color: green;
+}
+
+.color-blue{
+  color: #039be5;
 }
