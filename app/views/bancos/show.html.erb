@@ -29,7 +29,8 @@
     </thead>
 
     <tbody>
-      <% @banco.saldos.sort_by{|s|s.data}.each do |saldo| %>
+      <% @saldos_paginados = Kaminari.paginate_array(@banco.saldos.sort_by{|s|s.data}).page(params[:page]).per(5) %>
+      <% @saldos_paginados.each do |saldo| %>
         <tr>
           <td><%= saldo.data.strftime("%d/%m/%Y") %></td>
           <td><%= number_to_currency(saldo.valor) %></td>
@@ -44,9 +45,14 @@
         </tr>
       <% end %>
     </tbody>
-  </table>
+  </table>    
+  <div class="page-description">
+    <%= page_entries_info @saldos_paginados,  entry_name: 'Saldos' rescue nil %>
+  </div>
+  <%= paginate @saldos_paginados rescue nil %>
 </div>
 <br/>
+
 
 <div class="fixed-action-btn">
   <%= link_to  new_saldo_path(@banco), class:"btn-floating btn-large waves-effect waves-light red" do%>

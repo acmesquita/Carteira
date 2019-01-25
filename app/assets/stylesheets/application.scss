@@ -64,3 +64,35 @@
   overflow: auto;
   height: 400px;
 }
+
+.pagination-info {
+  margin-top: 5px;
+}
+
+.pagination {
+  background-color: white;
+}
+
+.pagination a{
+  color: black;
+  font-style: italic;
+  margin: 8px;
+  text-decoration: underline
+  // background: #99999987;
+  // padding: 8px 12px 10px 12px;
+  // border-radius: 100%;
+}
+
+.current{
+  color: black;
+  margin: 8px;
+  font-weight: bold;
+  // background: #99999987;
+  // padding: 8px 12px 10px 12px;
+  // border-radius: 100%;
+}
+
+.page-description{
+  padding: 20px;
+  float: right;
+}

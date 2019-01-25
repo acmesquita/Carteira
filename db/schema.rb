@@ -12,19 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2019_01_22_223519) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bancos", force: :cascade do |t|
     t.string "nome"
     t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_bancos_on_user_id"
   end
 
   create_table "saldos", force: :cascade do |t|
     t.date "data"
     t.float "valor"
-    t.integer "banco_id"
+    t.bigint "banco_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["banco_id"], name: "index_saldos_on_banco_id"
@@ -43,4 +46,6 @@ ActiveRecord::Schema.define(version: 2019_01_22_223519) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bancos", "users"
+  add_foreign_key "saldos", "bancos"
 end
