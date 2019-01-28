@@ -10,9 +10,9 @@
   <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
 <% else %>
   <li><%= render "devise/shared/links" %></li>
+<% end %>
 </ul>
 
-<% end %>
 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
