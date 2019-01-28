@@ -10,6 +10,7 @@
       <tr>
         <th>Nome</th>
         <th>Tipo</th>
+        <th>Saldo Atual</th>
         <th></th>
       </tr>
     </thead>
@@ -19,6 +20,7 @@
         <tr>
           <td><%= link_to banco.nome.upcase, banco %></td>
           <td><%= banco.tipo %></td>
+          <td><%= number_to_currency ultimo_valor(banco) %></td>
           <td><%= link_to edit_banco_path(banco) do %>
             <i class="material-icons">edit</i>
           <% end %>
@@ -28,6 +30,12 @@
           </td>
         </tr>
       <% end %>
+      <tr class="total">
+        <td><b>Total</b></td>
+        <td></td>      
+        <td class="color-blue"><b><%= number_to_currency valor_atual_total(@bancos)%></b></td>
+        <td></td>
+      <tr>
     </tbody>
   </table>
 </div>

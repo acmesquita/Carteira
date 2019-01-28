@@ -29,7 +29,7 @@
     </thead>
 
     <tbody>
-      <% @saldos_paginados = Kaminari.paginate_array(@banco.saldos.sort_by{|s|s.data}).page(params[:page]).per(5) %>
+      <% @saldos_paginados = Kaminari.paginate_array(@banco.saldos.order('data DESC')).page(params[:page]).per(5) %>
       <% @saldos_paginados.each do |saldo| %>
         <tr>
           <td><%= saldo.data.strftime("%d/%m/%Y") %></td>

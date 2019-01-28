@@ -17,6 +17,14 @@
 //= require echarts.min
 //= require_tree .
 
+hide = function(elem){
+    if(elem.hasClass("hide")){
+        elem.removeClass("hide");
+    }else{
+        elem.addClass("hide");
+    }
+};
+
 chart = function(element, label, data_label, data_values, type){
    // based on prepared DOM, initialize echarts instance
    var myChart = echarts.init(element);
@@ -47,4 +55,4 @@ chart = function(element, label, data_label, data_values, type){
 
    // use configuration item and data specified to show chart
    myChart.setOption(option);
-}
+};

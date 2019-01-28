@@ -1,0 +1,26 @@
+<h6>
+BANCOS
+<div class="float-right">
+  <i class="material-icons" onclick="hide($('.bancos'));">insert_chart</i>
+</div>
+</h6>
+
+<div class="row bancos">
+<% @bancos.each do |banco| %>
+  <div class="col s12 m4">
+    <div class="card">
+      <div class="card-image">
+        <div class="grafic chart-panel" style="width: 100%;height:200px;" onclick="chart(this, 'Saldos',<%=  get_data_labels_banco(banco) %>, <%= get_data_values_banco(banco)%>, 'line');"></div>
+        <%= link_to new_saldo_path(banco), class:"btn-floating halfway-fab waves-effect waves-light red" do %>
+          <i class="material-icons">add</i>
+        <% end %>
+      </div>
+      <div class="card-content">
+        <span class="card-title"><%= link_to banco.nome, banco_path(banco.id) %></span>
+        <small><%= banco.tipo %></small>
+        <p>Saldo Atual: <%=number_to_currency( ultimo_valor(banco)) %> </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

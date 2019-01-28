@@ -1,0 +1,22 @@
+ <ul id="slide-out" class="sidenav">
+ <% if current_user %>
+  <li>
+    <a href=""><span class="white-text email"><%= current_user.email%></span></a>
+  </li>
+  <li><%= link_to 'Dashboard', root_path %></li>
+  <li><%= link_to 'Bancos', bancos_path %></li>
+  <li><%= link_to 'Dividendos', dividendos_path %></li>
+  <li><div class="divider"></div></li>
+  <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+<% else %>
+  <li><%= render "devise/shared/links" %></li>
+</ul>
+
+<% end %>
+<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems);
+});
+</script>

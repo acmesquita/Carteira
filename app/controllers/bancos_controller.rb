@@ -5,7 +5,7 @@ class BancosController < ApplicationController
   # GET /bancos
   # GET /bancos.json
   def index
-    @bancos = current_user.bancos
+    @bancos = current_user.bancos.order(:nome, :tipo)
   end
 
   # GET /bancos/1

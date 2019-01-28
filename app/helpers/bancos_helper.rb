@@ -1,7 +1,7 @@
 module BancosHelper
 
-    def valor_total(banco)
-        banco.saldos.sum{|s| s.valor}
+    def valor_atual_total(bancos)
+        bancos.map{|b| ultimo_valor(b)}.to_a.sum
     end
 
     def ultimo_valor(banco)

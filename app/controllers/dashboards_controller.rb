@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards
   # GET /dashboards.json
   def index
-    @bancos = current_user.bancos
+    @bancos = current_user.bancos.order(:nome)
   end
 
  

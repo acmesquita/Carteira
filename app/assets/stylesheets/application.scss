@@ -17,18 +17,45 @@
  @import "materialize";
  @import "material_icons";
 
+ /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
  .nav-wrapper{
     padding-right: 10px;
     padding-left: 10px;
  }
 
  body{
-   background-color: #dddddd
+   background-color: #dddddd;
+   
  }
 
  h6{
-    color: #777777
+    color: #777777;
+    padding-bottom: 5px; 
  }
+
+ h6 .material-icons{
+  cursor: pointer;
+ }
+
  .card{
    background-color: #ffffff !important;
    border-radius: 3px;
