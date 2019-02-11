@@ -12,6 +12,6 @@ module DividendosHelper
         dividendos = current_user.dividendos
         total = dividendos.map{|d|d.valor}.sum
         meses = dividendos.map{|d|d.competencia.strftime("%m/%Y") }.to_set.count
-        total / meses
+        total / meses rescue 0
     end
 end
