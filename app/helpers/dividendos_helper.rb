@@ -10,8 +10,8 @@ module DividendosHelper
 
     def media_de_gastos
         dividendos = current_user.dividendos
-        total = dividendos.map{|d|d.valor}.sum
+        total = dividendos.map{|d|d.valor}.sum 
         meses = dividendos.map{|d|d.competencia.strftime("%m/%Y") }.to_set.count
-        total / meses
+        total / meses rescue 0
     end
 end

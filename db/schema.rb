@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_170313) do
 
   create_table "dividendos", force: :cascade do |t|
     t.string "descricao"
-    t.boolean "pago"
+    t.boolean "pago", default: false
     t.float "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
