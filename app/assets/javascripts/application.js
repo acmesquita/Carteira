@@ -56,3 +56,4 @@ chart = function(element, label, data_label, data_values, type){
    // use configuration item and data specified to show chart
    myChart.setOption(option);
 };
+//= require serviceworker-companion
