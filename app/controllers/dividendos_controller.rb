@@ -4,9 +4,9 @@ class DividendosController < ApplicationController
   # GET /dividendos
   # GET /dividendos.json
   def index
-    competencia_atual = params[:dividendo][:competencia] rescue Date.today.strftime("%Y-%m")
-    competencia_atual =  Date.today.strftime("%Y-%m") if competencia_atual.nil? || competencia_atual.empty?
-    @dividendos = current_user.dividendos.select{|d| d.competencia.strftime("%Y-%m") == competencia_atual} rescue []
+    @competencia_atual = params[:dividendo][:competencia] rescue Date.today.strftime("%Y-%m")
+    @competencia_atual =  Date.today.strftime("%Y-%m") if @competencia_atual.nil? || @competencia_atual.empty?
+    @dividendos = current_user.dividendos.select{|d| d.competencia.strftime("%Y-%m") == @competencia_atual} rescue []
   end
 
   # GET /dividendos/1
@@ -92,7 +92,7 @@ class DividendosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dividendo_params
-      params.require(:dividendo).permit(:competencia, :descricao, :pago, :valor)
+      params.require(:dividendo).permit(:competencia, :descricao, :pago, :valor, :data_vencimento)
     end
 
 end

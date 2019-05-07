@@ -12,9 +12,14 @@
     </div>
   <% end %>
   <div class="row">
-      <div class="col s12 m4">
+      <div class="col s12 m2">
         <%= form.label :competencia %>
-        <%= form.text_field :competencia, class:"datepicker" %>
+        <%= form.text_field :competencia, class:"datepicker-competencia" %>
+      </div>
+
+      <div class="col s12 m3">
+        <%= form.label :data_vencimento %>
+        <%= form.text_field :data_vencimento, class:"datepicker-data" %>
       </div>
 
       <div class="col s12 m4">
@@ -22,7 +27,7 @@
         <%= form.text_field :descricao %>
       </div>
 
-      <div class="col s12 m4">
+      <div class="col s12 m3">
         <%= form.label :valor %>
         <%= form.number_field :valor, step: '0.01' %>
       </div>
@@ -34,12 +39,20 @@
 </div>
 
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker-competencia');
     var do_controller = '<%= @dividendo.competencia.strftime("%m-01-%Y") %>';
     var competencia_atual = new Date(do_controller);
     competencia_atual.setDate = 1;
     var options =  {format: 'mm/yyyy', disableWeekends: true, setDefaultDate: true, defaultDate: competencia_atual, autoClose: true, selectMonths: true}
+    var instances = M.Datepicker.init(elems, options);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker-data');
+    var do_controller = '<%= @dividendo.competencia.strftime("%m-%d-%Y") %>';
+    var competencia_atual = new Date(do_controller);
+    var options =  {format: 'dd/mm/yyyy', disableWeekends: true, setDefaultDate: true, defaultDate: competencia_atual, autoClose: true, selectMonths: true}
     var instances = M.Datepicker.init(elems, options);
   });
 

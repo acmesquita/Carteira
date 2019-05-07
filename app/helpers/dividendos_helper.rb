@@ -14,4 +14,8 @@ module DividendosHelper
         meses = dividendos.map{|d|d.competencia.strftime("%m/%Y") }.to_set.count
         total / meses rescue 0
     end
+
+    def competencia_atual
+        Date.today().strftime("%m/%Y")
+    end
 end
