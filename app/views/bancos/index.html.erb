@@ -4,37 +4,37 @@
 <%end%>
 <h6>BANCOS</h6>
 
-<div class="card">
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Tipo</th>
-        <th>Saldo Atual</th>
-        <th></th>
-      </tr>
-    </thead>
+<div class="bancos card">
 
-    <tbody>
-      <% @bancos.each do |banco| %>
-        <tr>
-          <td><%= link_to banco.nome.upcase, banco %></td>
-          <td><%= banco.tipo %></td>
-          <td><%= number_to_currency ultimo_valor(banco) %></td>
-          <td><%= link_to edit_banco_path(banco) do %>
+  <div class="table">
+    <ul class="head">
+      <li class="columns">Nome</li>
+      <li class="columns">Tipo</li>
+      <li class="columns">Saldo Atual</li>
+      <li class="columns"></li>
+    </ul>
+    <ul class="content">
+     <% @bancos.each do |banco| %>
+      <li class="row">
+        <div class="columns"><span class="hide">Nome</span><%= link_to banco.nome.upcase, banco %></div>
+        <div class="columns"><span class="hide">Tipo</span><%= banco.tipo %></div>
+        <div class="columns"><span class="hide">Saldo Atual</span><%= number_to_currency ultimo_valor(banco) %></div>
+        <div class="columns">
+          <%= link_to edit_banco_path(banco) do %>
             <i class="material-icons">edit</i>
           <% end %>
-          </td>
-        </tr>
-      <% end %>
-      <tr class="total">
-        <td><b>Total</b></td>
-        <td></td>      
-        <td class="color-blue"><b><%= number_to_currency valor_atual_total(@bancos)%></b></td>
-        <td></td>
-      <tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+    <% end %>
+     <li class="row">
+        <div class="columns"><span class="hide">Total</span><b>Total</b></div>
+        <div class="columns"></div>
+        <div class="columns color-blue"><b><%= number_to_currency valor_atual_total(@bancos)%></b></div>
+        <div class="columns"></div>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 <div class="fixed-action-btn">

@@ -5,7 +5,8 @@ class SaldosController < ApplicationController
   # GET /saldos
   # GET /saldos.json
   def index
-    @saldos = Saldo.all
+    sql = "select s.data, sum(s.valor) as valor from saldos s group by s.data order by s.data desc"
+    @saldos = ActiveRecord::Base.connection.execute(sql).to_a
   end
 
   # GET /saldos/1

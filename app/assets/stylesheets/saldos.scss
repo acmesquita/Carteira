@@ -1,3 +1,66 @@
 // Place all the styles related to the Saldos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+* Model Yan Silva for Tables
+*/
+.saldo{
+  ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .hide {
+      display: none;
+    }
+    .table {
+      font-family: sans-serif;
+      width: 100%;
+      border: 1px solid #e5e5e5;
+      .head {
+        display: flex;
+        justify-content: space-between;
+        flex: 0 1 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px;
+        background: #f8f8f8;
+        font-weight: bold;
+      }
+      .content {
+        .row {
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 10px;
+          border-bottom: 1px solid #e5e5e5;
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+      .columns {
+        flex: 0 0 auto;
+        flex-basis: 20%;
+        max-width: calc(100% / 2);
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+    @media (max-width: 768px) {
+      .head {
+        display: none !important;
+      }
+      .row {
+        flex-direction: column;
+        .columns {
+          display: flex;
+          justify-content: space-between;
+          flex-basis: 100%;
+          max-width: 100%;
+          .hide {
+            display: block !important;
+          }
+        }
+      }
+    }
+}

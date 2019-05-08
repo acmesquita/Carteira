@@ -3,39 +3,20 @@
   <p class="alert"><%= alert %></p>
 <%end%>
 <h6>SALDOS</h6>
-<div class="card">
-<table>
-  <thead>
-    <tr>
-      <th>Data</th>
-      <th>Valor</th>
-      <th>Banco</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="card saldo">
+  <div class="table">
+    <ul class="head">
+      <li class="columns">Data</li>
+      <li class="columns">Valor</li>
+    </ul>
+    <ul class="content">
     <% @saldos.each do |saldo| %>
-      <tr>
-        <td><%= saldo.data %></td>
-        <td><%= saldo.valor %></td>
-        <td><%= saldo.banco.nome %></td>
-        <td>
-          <%= link_to edit_saldo_path(saldo) do %>
-            <i class="material-icons">edit</i>
-          <% end %>
-          <%= link_to  saldo, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="material-icons">delete</i>
-          <%end%>
-        </td>
-      </tr>
+      <li class="row">
+        <div class="columns"><span class="hide"><b>Data</b></span><%= format_date(saldo["data"]) %></div>
+        <div class="columns"><span class="hide"><b>Valor</b></span><%= number_to_currency saldo["valor"].to_f%></div>
+      </li>
     <% end %>
-  </tbody>
-</table>
-</div>
+    </ul>
+  </div>
 
-<div class="fixed-action-btn">
-  <%= link_to  new_saldo_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
-    <i class="material-icons">add</i>
-  <% end %>
 </div>

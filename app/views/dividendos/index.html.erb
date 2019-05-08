@@ -25,48 +25,49 @@
 </div>
 
 
-<div class="card">
-<table class="centered">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Data de Vencimento</th>
-      <th>Descricao</th>
-      <th>Valor</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="card dividendos">
+ <div class="table">
+    <ul class="head">
+      <li class="columns"></li>
+      <li class="columns">Data de Vencimento</li>
+      <li class="columns">Descrição</li>
+      <li class="columns">Valor</li>
+      <li class="columns"></li>
+    </ul>
+    <ul class="content">
     <% @dividendos.each do |dividendo| %>
-      <tr>
-        <td>
-          <%if(dividendo.pago) %>
+      <li class="row">
+        <div class="columns"><span class="hide"><b>Pago</b></span>
+        <%if(dividendo.pago) %>
             <i class="material-icons">check_box</i>
           <% else %>
             <%= link_to pagar_path(dividendo) do %>
               <i class="material-icons">check_box_outline_blank</i>
             <% end %>
           <% end %>
-        </td>
-        <td><%= dividendo.data_vencimento.strftime("%d/%m/%Y") rescue nil %></td>
-        <td><%= dividendo.descricao %></td>
-        <td><%= number_to_currency dividendo.valor %></td>
-        <td><%= link_to edit_dividendo_path(dividendo) do %>
+        </div>
+        <div class="columns"><span class="hide"><b>Data de Vencimento</b></span><%= dividendo.data_vencimento.strftime("%d/%m/%Y") rescue nil %></div>
+        <div class="columns"><span class="hide"><b>Descrição</b></span><%= dividendo.descricao %></div>
+        <div class="columns"><span class="hide"><b>Valor</b></span><%= number_to_currency dividendo.valor %></div>
+        <div class="columns">
+          <span class="hide"></span>
+          <%= link_to edit_dividendo_path(dividendo) do %>
             <i class="material-icons">edit</i>
           <% end %>
-        </td>
-      </tr>
+        </div>
+      </li>
     <% end %>
-    <tr class="total">
-      <td><b>Total</b></td>
-      <td class="color-red"><b><%= number_to_currency valor_total_pago(@dividendos) - valor_total(@dividendos)%></b></td>      
-      <td class="color-green"><b><%= number_to_currency valor_total_pago(@dividendos)%></b></td>
-      <td class="color-blue"><b><%= number_to_currency valor_total(@dividendos)%></b></td>
-      <td></td>
-    <tr>
-  </tbody>
-</table>
+     <li class="row">
+        <div class="columns"><span class="hide">Total</span><b>Total</b></div>
+        <div class="columns color-red"><span class="hide">Devendo</span><b><%= number_to_currency valor_total_pago(@dividendos) - valor_total(@dividendos)%></b></div>
+        <div class="columns color-green"><span class="hide">Pago</span><b><%= number_to_currency valor_total_pago(@dividendos)%></b></div>
+        <div class="columns color-blue"><span class="hide">Total</span><b><%= number_to_currency valor_total(@dividendos)%></b></div>
+        <div class="columns"></div>
+      </li>
+    </ul>
+  </div>
+
+
 <div class="page-description">
     <%= page_entries_info @dividendos rescue nil %>
   </div>
