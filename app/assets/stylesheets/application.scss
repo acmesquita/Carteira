@@ -62,7 +62,10 @@
    padding: 30px;
    padding-top: 20px;
    margin-top: 20px;
-   width: 100%
+   width: 100%;
+   @media screen and (max-width: 380px) {
+    padding: 10px;
+  }
  }
 
  .float-right{
@@ -146,3 +149,4 @@
 .color-blue{
   color: #039be5;
 }
+

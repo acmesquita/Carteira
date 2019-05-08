@@ -24,6 +24,9 @@
   </div>
   <div class="actions">
     <%= form.submit 'Salvar', class:"btn blue darken-4"%>
+    <% if banco.id %>
+      <%= link_to 'EXCLUIR', banco, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn red" %>
+    <% end %>
   </div>
 <% end %>
 </div>

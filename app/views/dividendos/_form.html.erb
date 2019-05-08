@@ -33,8 +33,11 @@
       </div>
   </div>
  <div class="actions">
-      <%= form.submit 'SALVAR', class:"btn blue darken-4" %>
-    </div>
+    <%= form.submit 'SALVAR', class:"btn blue darken-4" %>
+    <% if dividendo.id %>
+      <%= link_to 'EXCLUIR', dividendo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn red" %>
+    <% end %>
+  </div>
 <% end %>
 </div>
 

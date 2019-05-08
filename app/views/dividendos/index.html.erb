@@ -26,7 +26,7 @@
 
 
 <div class="card">
-<table>
+<table class="centered">
   <thead>
     <tr>
       <th></th>
@@ -55,9 +55,6 @@
         <td><%= link_to edit_dividendo_path(dividendo) do %>
             <i class="material-icons">edit</i>
           <% end %>
-          <%= link_to  dividendo, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="material-icons">delete</i>
-          <%end%>
         </td>
       </tr>
     <% end %>
