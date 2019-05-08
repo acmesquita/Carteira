@@ -58,7 +58,7 @@
       </li>
     <% end %>
      <li class="row">
-        <div class="columns"><span class="hide">Total</span><b>Total</b></div>
+        <div class="columns"><span class="hide"></span><b>Total</b></div>
         <div class="columns color-red"><span class="hide">Devendo</span><b><%= number_to_currency valor_total_pago(@dividendos) - valor_total(@dividendos)%></b></div>
         <div class="columns color-green"><span class="hide">Pago</span><b><%= number_to_currency valor_total_pago(@dividendos)%></b></div>
         <div class="columns color-blue"><span class="hide">Total</span><b><%= number_to_currency valor_total(@dividendos)%></b></div>
