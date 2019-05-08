@@ -20,6 +20,7 @@
         <div class="columns"><span class="hide">Tipo</span><%= banco.tipo %></div>
         <div class="columns"><span class="hide">Saldo Atual</span><%= number_to_currency ultimo_valor(banco) %></div>
         <div class="columns">
+          <span class="hide"></span>
           <%= link_to edit_banco_path(banco) do %>
             <i class="material-icons">edit</i>
           <% end %>
