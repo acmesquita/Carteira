@@ -6,7 +6,7 @@ class DividendosController < ApplicationController
   def index
     @competencia_atual = params[:dividendo][:competencia] rescue Date.today.strftime("%Y-%m")
     @competencia_atual =  Date.today.strftime("%Y-%m") if @competencia_atual.nil? || @competencia_atual.empty?
-    @dividendos = current_user.dividendos.select{|d| d.competencia.strftime("%Y-%m") == @competencia_atual} rescue []
+    @dividendos = current_user.dividendos.select{|d| d.competencia.strftime("%Y-%m") == @competencia_atual}.sort_by{|v| v.data_vencimento || Date.today()}.sort_by{|v| v.pago? ? 1:0} rescue []
   end
 
   # GET /dividendos/1

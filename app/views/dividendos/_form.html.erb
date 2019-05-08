@@ -50,7 +50,7 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.datepicker-data');
-    var do_controller = '<%= @dividendo.data_vencimento.strftime("%m-%d-%Y") %>';
+    var do_controller = '<%= @dividendo.data_vencimento.strftime("%m-%d-%Y") rescue Date.today() %>';
     var competencia_atual = new Date(do_controller);
     var options =  {format: 'dd/mm/yyyy', disableWeekends: true, setDefaultDate: true, defaultDate: competencia_atual, autoClose: true, selectMonths: true}
     var instances = M.Datepicker.init(elems, options);
