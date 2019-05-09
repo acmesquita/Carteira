@@ -2,62 +2,84 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .bancos{
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .hide {
+    display: none;
+  }
+  .table {
+    font-family: sans-serif;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    .head {
+      display: flex;
+      justify-content: space-between;
+      flex: 0 1 auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 10px;
+      background: #f8f8f8;
+      font-weight: bold;
+      .columns{
+        max-width: calc(100% / 4);
+        justify-content: flex-start;
       }
-      .hide {
-        display: none;
+    }
+    .content {
+      .row-table {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 10px;
+        border-bottom: 1px solid #e5e5e5;
+        &:last-child {
+          border-bottom: 0;
+        }        
       }
-      .table {
-        font-family: sans-serif;
+    }
+    .columns {
+      flex: 0 0 auto;
+      flex-basis: 20%;
+      max-width: calc(100% / 4);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .btn-wrapper{
         width: 100%;
-        border: 1px solid #e5e5e5;
-        .head {
-          display: flex;
-          justify-content: space-between;
-          flex: 0 1 auto;
-          flex-direction: row;
-          flex-wrap: wrap;
-          padding: 10px;
-          background: #f8f8f8;
-          font-weight: bold;
-        }
-        .content {
-          .row {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 10px;
-            border-bottom: 1px solid #e5e5e5;
-            &:last-child {
-              border-bottom: 0;
-            }
-          }
-        }
-        .columns {
-          flex: 0 0 auto;
-          flex-basis: 20%;
-          max-width: calc(100% / 3);
-          display: flex;
-          justify-content: center;
-        }
-      }
-      @media (max-width: 768px) {
-        .head {
-          display: none !important;
-        }
-        .row {
-          flex-direction: column;
-          .columns {
-            display: flex;
-            justify-content: space-between;
-            flex-basis: 100%;
-            max-width: 100%;
-            .hide {
-              display: block !important;
-            }
+        .btn{
+          width: calc(50% - 5px);
+          font-size: 12px;
+          &:nth-child(1){
+            margin-right: 5px;
           }
         }
       }
     }
+  }
+  @media (max-width: 768px) {
+    .head {
+      display: none !important;
+    }
+    .row-table {
+      flex-direction: column;
+      .columns {
+        display: flex;
+        justify-content: space-between;
+        flex-basis: 100%;
+        max-width: 100%;
+        .hide {
+          display: block !important;
+        }
+        .btn-wrapper{
+          display: flex;
+          flex-wrap: wrap;
+          border-top: 1px solid #dedada;
+          margin-top: 15px;
+          padding-top: 15px;
+        }
+      }
+    }
+  }
+}

@@ -15,19 +15,18 @@
     </ul>
     <ul class="content">
      <% @bancos.each do |banco| %>
-      <li class="row">
+      <li class="row-table">
         <div class="columns"><span class="hide">Nome</span><%= link_to banco.nome.upcase, banco %></div>
         <div class="columns"><span class="hide">Tipo</span><%= banco.tipo %></div>
         <div class="columns"><span class="hide">Saldo Atual</span><%= number_to_currency ultimo_valor(banco) %></div>
         <div class="columns">
-          <span class="hide"></span>
-          <%= link_to edit_banco_path(banco) do %>
-            <i class="material-icons">edit</i>
-          <% end %>
+          <div class="btn-wrapper">
+            <%= link_to 'EDITAR', edit_banco_path(banco), class: 'btn indigo accent-3' %>
+          </div>
         </div>
       </li>
     <% end %>
-     <li class="row">
+     <li class="row-table">
         <div class="columns"><span class="hide"></span><b>Total</b></div>
         <div class="columns"></div>
         <div class="columns color-blue"><span class="hide"></span><b><%= number_to_currency valor_atual_total(@bancos)%></b></div>
