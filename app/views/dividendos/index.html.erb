@@ -28,41 +28,34 @@
 <div class="card dividendos">
  <div class="table">
     <ul class="head">
-      <li class="columns"></li>
-      <li class="columns">Data de Vencimento</li>
       <li class="columns">Descrição</li>
+      <li class="columns">Vencimento</li>
       <li class="columns">Valor</li>
-      <li class="columns"></li>
+      <li class="columns">Ações</li>
     </ul>
     <ul class="content">
     <% @dividendos.each do |dividendo| %>
-      <li class="row">
-        <div class="columns"><span class="hide"><b>Pago</b></span>
-        <%if(dividendo.pago) %>
-            <i class="material-icons">check_box</i>
-          <% else %>
-            <%= link_to pagar_path(dividendo) do %>
-              <i class="material-icons">check_box_outline_blank</i>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="columns"><span class="hide"><b>Data de Vencimento</b></span><%= dividendo.data_vencimento.strftime("%d/%m/%Y") rescue nil %></div>
+      <li class="row-table">  
         <div class="columns"><span class="hide"><b>Descrição</b></span><%= dividendo.descricao %></div>
+        <div class="columns"><span class="hide"><b>Vencimento</b></span><%= dividendo.data_vencimento.strftime("%d/%m/%Y") rescue nil %></div>
         <div class="columns"><span class="hide"><b>Valor</b></span><%= number_to_currency dividendo.valor %></div>
         <div class="columns">
-          <span class="hide"></span>
-          <%= link_to edit_dividendo_path(dividendo) do %>
-            <i class="material-icons">edit</i>
-          <% end %>
+          <div class="btn-wrapper">
+            <%= link_to 'editar', edit_dividendo_path(dividendo), class: 'btn indigo accent-3' %>
+            <%if(dividendo.pago?) %>
+              <%= link_to 'PAGO', '#', class: 'btn disabled' %>
+            <% else %>
+              <%= link_to 'PAGAR', pagar_path(dividendo), class: 'btn btn-primary' %>
+            <% end %>
+          </div>
         </div>
       </li>
     <% end %>
-     <li class="row">
+     <li class="row-table">
         <div class="columns"><span class="hide"></span><b>Total</b></div>
         <div class="columns color-red"><span class="hide">Devendo</span><b><%= number_to_currency valor_total_pago(@dividendos) - valor_total(@dividendos)%></b></div>
         <div class="columns color-green"><span class="hide">Pago</span><b><%= number_to_currency valor_total_pago(@dividendos)%></b></div>
         <div class="columns color-blue"><span class="hide">Total</span><b><%= number_to_currency valor_total(@dividendos)%></b></div>
-        <div class="columns"></div>
       </li>
     </ul>
   </div>
