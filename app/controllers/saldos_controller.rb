@@ -19,6 +19,7 @@ class SaldosController < ApplicationController
     @saldo = Saldo.new
     @saldo.banco = Banco.find(params[:format]) rescue nil
     @saldo.data = Date.today
+    @saldo.valor = @saldo.banco.saldos.last.valor rescue nil
   end
 
   # GET /saldos/1/edit
