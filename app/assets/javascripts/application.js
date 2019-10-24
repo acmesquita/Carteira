@@ -17,43 +17,43 @@
 //= require echarts.min
 //= require_tree .
 
-hide = function(elem){
-    if(elem.hasClass("hide")){
+hide = function(elem) {
+    if (elem.hasClass("hide")) {
         elem.removeClass("hide");
-    }else{
+    } else {
         elem.addClass("hide");
     }
 };
 
-chart = function(element, label, data_label, data_values, type){
-   // based on prepared DOM, initialize echarts instance
-   var myChart = echarts.init(element);
+chart = function(element, label, data_label, data_values, type) {
+    // based on prepared DOM, initialize echarts instance
+    var myChart = echarts.init(element);
     console.log(data_label)
     console.log(data_values)
-   // specify chart configuration item and data
-   var option = {
-       tooltip: {},
-       legend: {
-           data:[label]
-       },
-       xAxis: {
-           data: data_label
-       },
-       yAxis: {
-            axisLabel:{rotate: 0, fontSize: 12 }
+        // specify chart configuration item and data
+    var option = {
+        tooltip: {},
+        legend: {
+            data: [label]
         },
-        grid:{
+        xAxis: {
+            data: data_label
+        },
+        yAxis: {
+            axisLabel: { rotate: 0, fontSize: 12 }
+        },
+        grid: {
             left: 50
         },
-       series: [{
-           name: label,
-           type: type,
-           areaStyle: {},
-           data: data_values
-       }]
-   };
+        series: [{
+            name: label,
+            type: type,
+            areaStyle: {},
+            data: data_values
+        }]
+    };
 
-   // use configuration item and data specified to show chart
-   myChart.setOption(option);
+    // use configuration item and data specified to show chart
+    myChart.setOption(option);
 };
 //= require serviceworker-companion

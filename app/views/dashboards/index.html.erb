@@ -1,14 +1,13 @@
-<% if notice %>
-  <p id="notice" class="flash_sucess"><%= notice %></p>
-<%end %>
-<% if alert %>
-  <p class="flash_fail"><%= alert %></p>
-<%end%>
+<% if @bancos.empty? %>
+  <div style="align-items: center; text-align: center;">
+    <%= image_tag(asset_url('bank_empty.png'), alt: "Nenhum banco cadastrado no sistema.") %>
+    <p>Não há bancos cadastrados, clique em + no canto direito para iniciar.<p>
+  </div>
+<% else %>
+  <%= render '/dashboards/graficos' %>
+  <%= render '/dashboards/bancos' %>
+<% end %>
 
-
-<%= render '/dashboards/graficos' %>
-
-<%= render '/dashboards/bancos' %>
 
 <div class="fixed-action-btn">
   <%= link_to  new_banco_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
