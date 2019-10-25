@@ -92,7 +92,7 @@ class DividendosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dividendo_params
-      params.require(:dividendo).permit(:competencia, :descricao, :pago, :valor, :data_vencimento)
+      params.require(:dividendo).permit(:competencia, :descricao, :pago, :valor, :data_vencimento, :categoria_id)
     end
 
 end

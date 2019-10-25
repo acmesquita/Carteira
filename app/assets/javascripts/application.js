@@ -56,4 +56,48 @@ chart = function(element, label, data_label, data_values, type) {
     // use configuration item and data specified to show chart
     myChart.setOption(option);
 };
+
+chartPie = function(element, label, data_label, data_values) {
+    var myChart = echarts.init(element);
+    console.log(data_label)
+    console.log(JSON.parse(data_values))
+
+    var option = {
+        // title: {
+        //     text: 'Título',
+        //     subtext: 'Subtítulo',
+        //     x: 'center'
+        // },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : R$ {c} ({d}%)"
+        },
+        legend: {
+            type: 'scroll',
+            orient: 'horizontal',
+            right: 10,
+            top: 20,
+            bottom: 20,
+            data: data_label
+        },
+        series: [{
+            name: label,
+            type: 'pie',
+            radius: '55%',
+            center: ['40%', '50%'],
+            data: JSON.parse(data_values),
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    };
+
+    // use configuration item and data specified to show chart
+    myChart.setOption(option);
+};
+
 //= require serviceworker-companion

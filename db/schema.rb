@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_121810) do
+ActiveRecord::Schema.define(version: 2019_10_24_174313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 2019_05_08_121810) do
     t.index ["user_id"], name: "index_bancos_on_user_id"
   end
 
+  create_table "categorias", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dividendos", force: :cascade do |t|
     t.string "descricao"
     t.boolean "pago", default: false
@@ -33,6 +39,8 @@ ActiveRecord::Schema.define(version: 2019_05_08_121810) do
     t.date "competencia"
     t.bigint "user_id"
     t.date "data_vencimento"
+    t.bigint "categoria_id"
+    t.index ["categoria_id"], name: "index_dividendos_on_categoria_id"
     t.index ["user_id"], name: "index_dividendos_on_user_id"
   end
 
@@ -68,6 +76,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_121810) do
   end
 
   add_foreign_key "bancos", "users"
+  add_foreign_key "dividendos", "categorias"
   add_foreign_key "dividendos", "users"
   add_foreign_key "saldos", "bancos"
 end
