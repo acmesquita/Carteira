@@ -58,7 +58,8 @@ module DashboardsHelper
     end
 
     def get_data_labels_categorias(user)
-        current_user.dividendos.sort_by{|d|d.try(:categoria).try(:nome)}.group_by{|d|d.try(:categoria).try(:nome)}.keys
+        user.dividendos.group_by{|d|d.try(:categoria).try(:nome)}.keys.uniq
+        # current_user.dividendos.sort_by{|d|d.try(:categoria).try(:nome)}.group_by{|d|d.try(:categoria).try(:nome)}.keys
     end
 
     def get_data_values_categorias(user)
