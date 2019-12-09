@@ -58,10 +58,10 @@ module DashboardsHelper
     end
 
     def get_data_labels_categorias(user)
-        user.dividendos.sort_by{|d|d.try(:categoria).try(:nome)}.group_by{|d|d.try(:categoria).try(:nome)}.keys
+        current_user.dividendos.sort_by{|d|d.try(:categoria).try(:nome)}.group_by{|d|d.try(:categoria).try(:nome)}.keys
     end
 
     def get_data_values_categorias(user)
-        user.dividendos.sort_by{ |d| d.try(:categoria).try(:nome) }.group_by{ |d| d.try(:categoria).try(:nome) }.map{ |k| { name: k[0], value: k[1].map{ |s| s.valor }.sum } }.to_json
+        current_user.dividendos.sort_by{ |d| d.try(:categoria).try(:nome) }.group_by{ |d| d.try(:categoria).try(:nome) }.map{ |k| { name: k[0], value: k[1].map{ |s| s.valor }.sum } }.to_json
     end
 end
