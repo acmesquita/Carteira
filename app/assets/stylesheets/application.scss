@@ -13,147 +13,160 @@
  *= require_tree .
  *= require_self
  */
- 
- @import "materialize";
- @import "material_icons";
 
- /* width */
+@import "materialize";
+@import "material_icons";
+
+/* width */
+
 ::-webkit-scrollbar {
-  width: 5px;
+    width: 5px;
 }
+
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+    background: #f1f1f1;
 }
- 
+
+
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+    background: #888;
 }
+
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+    background: #555;
 }
 
- .nav-wrapper{
+.nav-wrapper {
     padding-right: 10px;
     padding-left: 10px;
- }
+}
 
- body{
-   background-color: #dddddd;
-   
- }
+body {
+    background-color: #dddddd;
+}
 
- h6{
+h6 {
     color: #777777;
-    padding-bottom: 5px; 
- }
+    padding-bottom: 5px;
+}
 
- h6 .material-icons{
-  cursor: pointer;
- }
+h6 .material-icons {
+    cursor: pointer;
+}
 
- .card{
-   background-color: #ffffff !important;
-   border-radius: 3px;
-   padding: 30px;
-   padding-top: 20px;
-   margin-top: 20px;
-   width: 100%;
-   @media screen and (max-width: 380px) {
-    padding: 10px;
-  }
- }
+.card {
+    background-color: #ffffff !important;
+    border-radius: 3px;
+    padding: 30px;
+    padding-top: 20px;
+    margin-top: 20px;
+    width: 100%;
+    @media screen and (max-width: 380px) {
+        padding: 10px;
+    }
+}
 
- .float-right{
-   float: right;
- }
+.float-right {
+    float: right;
+}
 
- .flash_sucess{
-  border-color: green;
-  margin-top: 20px;
-  background-color: #09980947;
-  padding: 15px;
-  border-radius: 5px;
-  color: green;
- }
+.flash_sucess {
+    border-color: green;
+    margin-top: 20px;
+    background-color: #09980947;
+    padding: 15px;
+    border-radius: 5px;
+    color: green;
+}
 
- .flash_fail{
-  border-color: red;
-  margin-top: 20px;
-  background-color: #dd515147;
-  padding: 15px;
-  border-radius: 5px;
-  color: red;
- }
+.flash_fail {
+    border-color: red;
+    margin-top: 20px;
+    background-color: #dd515147;
+    padding: 15px;
+    border-radius: 5px;
+    color: red;
+}
 
-.scroll{
-  overflow: auto;
-  height: 400px;
+.scroll {
+    overflow: auto;
+    height: 400px;
 }
 
 .pagination-info {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 .pagination {
-  background-color: white;
+    background-color: white;
 }
 
-.pagination a{
-  color: black;
-  font-style: italic;
-  margin: 8px;
-  text-decoration: underline
-  // background: #99999987;
-  // padding: 8px 12px 10px 12px;
-  // border-radius: 100%;
+.pagination a {
+    color: black;
+    font-style: italic;
+    margin: 8px;
+    text-decoration: underline // background: #99999987;
+    // padding: 8px 12px 10px 12px;
+    // border-radius: 100%;
 }
 
-.current{
-  color: black;
-  margin: 8px;
-  font-weight: bold;
-  // background: #99999987;
-  // padding: 8px 12px 10px 12px;
-  // border-radius: 100%;
+.current {
+    color: black;
+    margin: 8px;
+    font-weight: bold;
+    // background: #99999987;
+    // padding: 8px 12px 10px 12px;
+    // border-radius: 100%;
 }
 
-.page-description{
-  padding: 20px;
-  float: right;
+.page-description {
+    padding: 20px;
+    float: right;
 }
 
-.total{
-  border-top: 2px solid rgba(0, 0, 0, 0.52);
-  border-bottom: transparent;
+.total {
+    border-top: 2px solid rgba(0, 0, 0, 0.52);
+    border-bottom: transparent;
 }
 
-.pesquisar{
-  padding: 32px !important;
-  padding-bottom: 0px !important;
-  padding-right: 5px !important;
+.pesquisar {
+    padding: 32px !important;
+    padding-bottom: 0px !important;
+    padding-right: 5px !important;
 }
 
-.color-red{
-  color: red;
+.color-red {
+    color: red;
 }
 
-.color-green{
-  color: green;
+.color-green {
+    color: green;
 }
 
-.color-blue{
-  color: #039be5;
+.color-blue {
+    color: #039be5;
 }
 
-.sidenav-overlay{
-  position: unset !important;
+.sidenav-overlay {
+    position: unset !important;
 }
 
 .dropdown-content {
- top: 65px !important;
+    top: 65px !important;
+}
+
+.grafico_saldo {
+    color: green;
+}
+
+.container {
+    width: 80%;
 }

@@ -57,4 +57,11 @@ module DashboardsHelper
         current_user.dividendos.select{|d| d.competencia.strftime("%Y-%m") == competencia_atual}.map{|d| d.valor}.sum
     end
 
+    def get_data_labels_categorias(user)
+        user.dividendos.sort_by{|d|d.categoria.nome}.group_by{|d|d.categoria.nome}.keys
+    end
+
+    def get_data_values_categorias(user)
+        user.dividendos.sort_by{ |d| d.categoria.nome }.group_by{ |d| d.categoria.nome }.map{ |k| { name: k[0], value: k[1].map{ |s| s.valor }.sum } }.to_json
+    end
 end

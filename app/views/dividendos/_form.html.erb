@@ -17,17 +17,22 @@
         <%= form.text_field :competencia, class:"datepicker-competencia" %>
       </div>
 
-      <div class="col s12 m3">
+      <div class="col s12 m2">
         <%= form.label :data_vencimento %>
         <%= form.text_field :data_vencimento, class:"datepicker-data" %>
       </div>
 
-      <div class="col s12 m4">
+      <div class="col s12 m3">
+        <%= form.label :categoria_id %>
+        <%= form.select :categoria_id, Categoria.all.order(:nome).collect {|c| [c.nome, c.id]}, {:prompt => 'Selecione uma categoria'}, class:"browser-default" %>
+      </div>
+
+      <div class="col s12 m3">
         <%= form.label :descricao %>
         <%= form.text_field :descricao %>
       </div>
 
-      <div class="col s12 m3">
+      <div class="col s12 m2">
         <%= form.label :valor %>
         <%= form.number_field :valor, step: '0.01' %>
       </div>

@@ -1,19 +1,24 @@
 <h6>DASHBOARDS
-<div class="float-right">
-  <i class="material-icons" onclick="hide($('.graficos'));">insert_chart</i>
-</div>
+  <div class="float-right">
+    <i class="material-icons" onclick="hide($('.graficos'));">insert_chart</i>
+  </div>
 </h6>
-<% if @bancos.empty? %>
-  <h5>Não há bancos cadastrados, clique em + no canto direito para iniciar. <h5>
-<% end %>
 
 <div class="row graficos">
   <div class="col m1"></div>
   <div class="card col m5">
     <%= render '/dashboards/saldos_bancario' %>
   </div>
+
   <div class="col m1"></div>
   <div class="card col m5">
     <%= render '/dashboards/dividendos' %>
+  </div>
+</div>
+
+<div class="row graficos">
+  <div class="col m1"></div>
+  <div class="card col m11">
+    <%= render '/dashboards/categorias' %>
   </div>
 </div>

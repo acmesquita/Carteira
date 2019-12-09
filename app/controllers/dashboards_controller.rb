@@ -5,6 +5,4 @@ class DashboardsController < ApplicationController
   def index
     @bancos = current_user.bancos.order(:nome)
   end
-
- 
 end

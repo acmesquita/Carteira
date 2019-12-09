@@ -1,4 +1,4 @@
-<span class="card-title">Dividendos</span>
+<div style="align-items: center; text-align: center;"><span class="card-title">Dividendos</span></div>
 <div class="grafic chart-panel" style="width: 100%;height:200px;" onclick="chart(this, 'Dividendos',<%=  get_data_labels_dividendos(current_user) %>, <%= get_data_values_dividendos(current_user)%>, 'bar');"></div>
 <div class="card-content">
     <p>Mês atual: <%= Date.today.strftime("%m/%Y") %> </p>
