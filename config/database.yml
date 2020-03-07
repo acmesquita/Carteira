@@ -12,11 +12,15 @@ default: &default
 
 development:
   <<: *default
+  username: catharina
+  password: postgres
   database: carteira
 
 test:
   <<: *default
-  database: myapp_test
+  username: catharina
+  password: postgres
+  database: carteira_test
 
 production:
   <<: *default
