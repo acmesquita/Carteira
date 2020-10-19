@@ -12,15 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_10_24_174313) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "bancos", force: :cascade do |t|
     t.string "nome"
     t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_bancos_on_user_id"
   end
 
@@ -37,9 +34,9 @@ ActiveRecord::Schema.define(version: 2019_10_24_174313) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "competencia"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.date "data_vencimento"
-    t.bigint "categoria_id"
+    t.integer "categoria_id"
     t.index ["categoria_id"], name: "index_dividendos_on_categoria_id"
     t.index ["user_id"], name: "index_dividendos_on_user_id"
   end
@@ -47,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_174313) do
   create_table "saldos", force: :cascade do |t|
     t.date "data"
     t.float "valor"
-    t.bigint "banco_id"
+    t.integer "banco_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["banco_id"], name: "index_saldos_on_banco_id"
@@ -75,8 +72,4 @@ ActiveRecord::Schema.define(version: 2019_10_24_174313) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bancos", "users"
-  add_foreign_key "dividendos", "categorias"
-  add_foreign_key "dividendos", "users"
-  add_foreign_key "saldos", "bancos"
 end

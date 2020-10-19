@@ -1,7 +1,9 @@
-<h6>BANCOS</h6>
+<div class="title">
+  <h6>BANCOS</h6>
+  <%= link_to 'NOVO BANCO', new_banco_path, class: 'btn btn-primary accent-3' %>
+</div>
 
 <div class="bancos card">
-
   <div class="table">
     <ul class="head">
       <li class="columns">Nome</li>
@@ -35,7 +37,7 @@
 </div>
 
 <div class="fixed-action-btn">
-  <%= link_to  new_banco_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
+  <%= link_to  saldo_new_path, class:"btn-floating btn-large waves-effect waves-light red" do%>
     <i class="material-icons">add</i>
   <% end %>
 </div>

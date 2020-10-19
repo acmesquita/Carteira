@@ -11,10 +11,10 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  username: catharina
-  password: postgres
-  database: carteira
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
 
 test:
   <<: *default

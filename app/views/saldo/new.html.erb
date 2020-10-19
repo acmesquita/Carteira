@@ -1,0 +1,17 @@
+<div id="novo-saldo">
+  <h6>NOVO SALDO</h6>
+  <small><%= Date.today.strftime('%d/%m/%Y') %></small>
+
+  <div class="card form">
+  <% @bancos.each do |banco| %>
+    <div class="form-group">
+      <h6><%= banco.nome %></h6>
+      <input type="number" id=<%= banco.id %>>
+    </div>
+  <% end %>
+    <div class="actions">
+      <button type="button" class="btn blue darken-4">SALVAR</button>
+      <%= link_to 'Voltar', root_path, class:"btn btn-default" %>
+    </div>
+  </div>
+</div>

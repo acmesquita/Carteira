@@ -1,6 +1,7 @@
-<%= link_to dividendos_path do %>
-    <i class="material-icons">arrow_back</i> VOLTAR
-<%end%>
-<h6>NOVO DIVIDENDO</h6>
-
+<div class="title">
+    <%= link_to dividendos_path do %>
+        <i class="material-icons">arrow_back</i> VOLTAR
+    <%end%>
+    <h6>NOVO DIVIDENDO</h6>
+</div>
 <%= render 'form', dividendo: @dividendo %>
