@@ -1,9 +1,7 @@
-var novoSaldo = document.querySelector('div#novo-saldo');
+var novoSaldo = $('div#novo-saldo');
 if(novoSaldo){
-
-  var btn = document.querySelector('button')
-
-  btn.addEventListener('click', function(event){
+  var btn = $('button')
+  btn.addEventListener('click', function(){
     var token = $('meta[name="csrf-token"]').attr('content');
     var inputs = document.querySelectorAll('input');
     var data = new FormData()
@@ -19,10 +17,8 @@ if(novoSaldo){
         'X-CSRF-Token': token,
       },
       body: data
-    }).then(() => {
-      history.back()
-    }).catch(()=>{
-      history.back()
     })
+
+    history.back()
   })
 }
