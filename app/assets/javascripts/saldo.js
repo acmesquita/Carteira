@@ -6,8 +6,8 @@ if(novoSaldo){
     var inputs = document.querySelectorAll('input');
     var data = new FormData()
     data.append('data', new Date() + 1)
-    for (let index = 0; index < inputs.length; index++) {
-      const input = inputs[index];
+    for (var index = 0; index < inputs.length; index++) {
+      var input = inputs[index];
       data.append('bancos[]id', input.id)
       data.append('bancos[]valor', input.value)
       
