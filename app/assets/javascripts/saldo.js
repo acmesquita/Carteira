@@ -6,10 +6,12 @@ if(novoSaldo){
     var inputs = document.querySelectorAll('input');
     var data = new FormData()
     data.append('data', new Date() + 1)
-    inputs.forEach(input => {
+    for (let index = 0; index < inputs.length; index++) {
+      const input = inputs[index];
       data.append('bancos[]id', input.id)
       data.append('bancos[]valor', input.value)
-    });
+      
+    }
 
     fetch('/saldo/create', {
       method: 'POST',
