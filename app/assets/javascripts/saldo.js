@@ -1,12 +1,12 @@
-const novoSaldo = document.querySelector('div#novo-saldo');
+var novoSaldo = document.querySelector('div#novo-saldo');
 if(novoSaldo){
 
-  const btn = document.querySelector('button')
+  var btn = document.querySelector('button')
 
   btn.addEventListener('click', function(event){
-    const token = $('meta[name="csrf-token"]').attr('content');
-    const inputs = document.querySelectorAll('input');
-    const data = new FormData()
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var inputs = document.querySelectorAll('input');
+    var data = new FormData()
     data.append('data', new Date() + 1)
     inputs.forEach(input => {
       data.append('bancos[]id', input.id)
