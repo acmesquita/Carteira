@@ -6,7 +6,8 @@
       justify-content: space-between;
       align-items: center;
       input {
-        max-width: 250px ;
+        max-width: min(250px, 50vw) ;
+        text-align: right;
       }
     }
   }
