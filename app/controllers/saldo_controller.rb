@@ -4,7 +4,7 @@ class SaldoController < ApplicationController
 
   # GET /saldo/new
   def new
-    @bancos = current_user.bancos
+    @bancos = current_user.bancos.order(:nome)
   end
 
   # POST /saldo
